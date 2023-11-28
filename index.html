@@ -6,21 +6,17 @@
     <title>Superhero Search</title>
   </head>
   <body>
-
     <h1>Superhero Search!</h1>
     <div class="card">
       <h3 class="card-header text-uppercase">Search By Character Name!</h3>
       <form id="character-form" class="card-body">
-        <input
-          name="name"
-          id="name"
-          type="text"
-          autofocus="true"
-          class="form-input"
-          placeholder="Enter a character name"
-        />
-        <button type="submit" class="btn">Search</button>
+        <input name="name" id="name" type="text" autofocus="true" class="form-input" placeholder="Enter a character name" />
+        <button onclick="handleSearch()" type="button" class="btn">Search</button>
       </form>
+    </div>
+
+    <div id="recent-searches-container">
+      <ul id="recent-searches-list"></ul>
     </div>
   </body>
   <script src="./script.js"></script>
