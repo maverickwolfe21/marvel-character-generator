@@ -33,8 +33,8 @@ function handleSearch() {
   textInput.value = "";
 }
 
-// recentSearchesOl.addEventListener("click", function (e) {
-//   if (e.target && e.target.matches("li")) {
-//     window.location = "./details.html?name=" + e.target.innerText;
-//   }
-// });
+recentSearchesOl.addEventListener("click", function (e) {
+  if (e.target && e.target.matches("li")) {
+    window.location = "./details.html?name=" + e.target.innerText;
+  }
+});
