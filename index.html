@@ -11,27 +11,20 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+
   </head>
   <body>
     <h1>Superhero Search!</h1>
     <div class="card">
       <h3 class="card-header text-uppercase">Search By Character Name!</h3>
-      <form id="character-form" class="card-body">
+      <form onsubmit="handleSearch()" class="pure-form" id="character-form" class="card-body">
         <input name="name" id="name" type="text" autofocus="true" class="form-input" placeholder="Enter a character name" />
-        <style>
-          .button-Search {
-              color: white;
-              border-radius: 4px;
-              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-          }
-  
-          .button-Search {
-              background: rgb(202, 60, 60);
-              /* this is a maroon */
-          }
-      </style>
-        
-        <button onclick="handleSearch()" type="button" class="pure-button button-Search">Search</button>
+        <button type="submit" class="pure-button pure-button-primary custom-button">Search</button>
       </form>
     </div>
 

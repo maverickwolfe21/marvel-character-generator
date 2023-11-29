@@ -4,7 +4,7 @@ let recentSearchesOl = document.querySelector("#recent-searches-list");
 let previousSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 
 if (previousSearchHistory && previousSearchHistory.length > 0) {
-  for (let i = 0; i < previousSearchHistory.length; i++) {
+  for (let i = 0; i < previousSearchHistory.length && i < 5; i++) {
     var characterItem = document.createElement("li");
     characterItem.textContent = previousSearchHistory[i];
     recentSearchesOl.append(characterItem);
@@ -12,18 +12,29 @@ if (previousSearchHistory && previousSearchHistory.length > 0) {
 }
 
 function handleSearch() {
+  if (textInput.value === "") {
+    return;
+  }
+
   if (previousSearchHistory && previousSearchHistory.length > 0) {
     let searchHistory = previousSearchHistory;
-    searchHistory.push(textInput.value);
+    searchHistory.unshift(textInput.value);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   } else {
     let searchHistory = [];
-    searchHistory.push(textInput.value);
+    searchHistory.unshift(textInput.value);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }
 
   var characterItem = document.createElement("li");
   characterItem.textContent = textInput.value;
 
-  recentSearchesOl.append(characterItem);
+  recentSearchesOl.prepend(characterItem);
+  textInput.value = "";
 }
+
+// recentSearchesOl.addEventListener("click", function (e) {
+//   if (e.target && e.target.matches("li")) {
+//     window.location = "./details.html?name=" + e.target.innerText;
+//   }
+// });
