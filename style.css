@@ -1,3 +1,12 @@
+#superhero-photo 
+{
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  float: right;
+}
 
 * {
   font-family: "Roboto", sans-serif;
@@ -12,3 +21,4 @@ li:hover {
   color: red;
   font-size: 25px;
 }
+
