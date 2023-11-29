@@ -1,0 +1,13 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.custom-button {
+  /* background-color: red; */
+}
+
+li:hover {
+  cursor: pointer;
+  color: red;
+  font-size: 25px;
+}
