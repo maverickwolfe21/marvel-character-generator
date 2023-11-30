@@ -1,7 +1,9 @@
 var superheroInfoEl = document.getElementById("superhero-info");
 var superheroPhotoEl = document.getElementById("superhero-photo");
+var animBox = document.querySelector(".animation-box");
+var superheroName = document.location.search.split("=")[1];
 
-const url = 'https://superhero-api.p.rapidapi.com/search?name=batman';
+const url = 'https://superhero-api.p.rapidapi.com/search?name=' + superheroName;
 const options = {
 	method: 'GET',
 	headers: {
@@ -10,16 +12,12 @@ const options = {
 	}
 };
 
-
-
 async function generateHeroData() {
     try {
         const response = await fetch(url, options);
         const result = await response.text();
         var heroData = JSON.parse(result);
-        console.log(heroData);
-        var firstHero = heroData.hero[0];
-        console.log(firstHero);
+
         if (heroData.success == false) {
             superheroInfoEl.textContent = "This is not a hero in our database, sending you back!"
             var timer = 2;
@@ -29,8 +27,9 @@ async function generateHeroData() {
                     window.location = "./index.html";
                 }
             }, 1000);
-            return;
         }
+
+        var firstHero = heroData.hero[0];
 
         function generateHeroTable(dataSel) {  
             var heroKey = Object.keys(firstHero.data[dataSel]);
@@ -64,6 +63,27 @@ async function generateHeroData() {
         tablesToMake.forEach(element => {
             generateHeroTable(element);
         });
+
+        superheroPhotoEl.src = firstHero.data.image.url;
+        superheroPhotoEl.alt = "Image of " + superheroName;
+
+        var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=W8T0FQZUb633jY4uGpRiNzr5aB3laRhH&q=" + superheroName + "&limit=1&offset=0&rating=g&lang=en&bundle=messaging_non_clips";
+
+        fetch(giphyUrl).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) { 
+                    console.log(data);
+                    var heroGif = document.createElement("img");
+                    heroGif.src = data.data[0].images.fixed_height.url;
+                    heroGif.alt = "Gif of " + superheroName;
+                    animBox.appendChild(heroGif);
+                });
+            } else {
+                var errMessage = document.createElement("p");
+                errMessage.textContent = "Unable to find gif/ server may be down";
+                animBox.appendChild(errMessage);
+            }
+        })
 
     } catch (error) {
         console.error(error);

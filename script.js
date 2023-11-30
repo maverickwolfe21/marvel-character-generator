@@ -12,6 +12,7 @@ if (previousSearchHistory && previousSearchHistory.length > 0) {
   }
 }
 
+
 function handleSearch(e) {
   e.preventDefault();
   if (textInput.value === "") {
@@ -28,13 +29,17 @@ function handleSearch(e) {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }
 
-  window.location = "./details.html?name=" + textInput.value;
+  var superheroSearch = textInput.value;
+  superheroSearch = superheroSearch.replace(/\s+/g, "-")
+  window.location = "./details.html?name=" + superheroSearch;
 }
 
 charFormEl.addEventListener("submit", handleSearch);
 
 recentSearchesOl.addEventListener("click", function (e) {
   if (e.target && e.target.matches("li")) {
-    window.location = "./details.html?name=" + e.target.innerText;
+    var superheroSearch = e.target.innerText;
+    superheroSearch = superheroSearch.replace(/\s+/g, "-")
+    window.location = "./details.html?name=" + superheroSearch;
   }
 });
