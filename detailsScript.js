@@ -29,12 +29,16 @@ async function generateHeroData() {
             }, 1000);
         }
 
+        // This gets the first result of the heroes list
         var firstHero = heroData.hero[0];
 
+        // This will generate the table full of data
         function generateHeroTable(dataSel) {  
+            // Returns the names of the keys
             var heroKey = Object.keys(firstHero.data[dataSel]);
+
+            // Returns the names of the values
             var heroVal = Object.values(firstHero.data[dataSel]);
-            console.log
 
             for (var i = 0; i < heroKey.length; i++) {
                 var appearanceTable = document.getElementById("superhero-" + dataSel);
@@ -67,12 +71,13 @@ async function generateHeroData() {
         superheroPhotoEl.src = firstHero.data.image.url;
         superheroPhotoEl.alt = "Image of " + superheroName;
 
+        // Get the gif
         var giphyUrl = "https://api.giphy.com/v1/gifs/search?api_key=W8T0FQZUb633jY4uGpRiNzr5aB3laRhH&q=" + superheroName + "&limit=1&offset=0&rating=g&lang=en&bundle=messaging_non_clips";
 
         fetch(giphyUrl).then(function (response) {
             if (response.ok) {
+                // Add the gif if everything is successful
                 response.json().then(function (data) { 
-                    console.log(data);
                     var heroGif = document.createElement("img");
                     heroGif.src = data.data[0].images.fixed_height.url;
                     heroGif.alt = "Gif of " + superheroName;
