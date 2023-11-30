@@ -25,3 +25,20 @@ li:hover {
   font-size: 25px;
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+th {
+  text-align: center;
+}
+
+th:nth-child(odd) {
+  width: 40%;
+}

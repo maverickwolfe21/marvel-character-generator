@@ -1,4 +1,5 @@
 let textInput = document.querySelector("#name");
+let charFormEl = document.querySelector("#character-form")
 let recentSearchesOl = document.querySelector("#recent-searches-list");
 
 let previousSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
@@ -11,7 +12,8 @@ if (previousSearchHistory && previousSearchHistory.length > 0) {
   }
 }
 
-function handleSearch() {
+function handleSearch(e) {
+  e.preventDefault();
   if (textInput.value === "") {
     return;
   }
@@ -26,12 +28,10 @@ function handleSearch() {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }
 
-  var characterItem = document.createElement("li");
-  characterItem.textContent = textInput.value;
-
-  recentSearchesOl.prepend(characterItem);
-  textInput.value = "";
+  window.location = "./details.html?name=" + textInput.value;
 }
+
+charFormEl.addEventListener("submit", handleSearch);
 
 recentSearchesOl.addEventListener("click", function (e) {
   if (e.target && e.target.matches("li")) {
