@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Superhero Search</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <h1>Superhero Searcher</h1>
+    <h1 class="header">Superhero Search!</h1>
 
     <div class="animation-box">
       <h3>Animation</h3>
-      <p>Here is the description of the superhero, They are powerful and have strong strength</p>
     </div>
-    <div class="box">This is a box!</div>
-    <img
-      src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
-      alt="placeholder"
-      id="superhero-photo"
-    />
+
+    <div id="superhero-info">
+      <table id="superhero-appearance">
+        <tr>
+          <th>Appearance</th>
+          <th>Data</th>
+        </tr>
+      </table>
+      <table id="superhero-biography">
+        <tr>
+          <th>Biography</th>
+          <th>Data</th>
+        </tr>
+      </table>
+      <table id="superhero-connections">
+        <tr>
+          <th>Connections</th>
+          <th>Data</th>
+        </tr>
+      </table>
+      <table id="superhero-powerstats">
+        <tr>
+          <th>Stats</th>
+          <th>Data</th>
+        </tr>
+      </table>
+      <table id="superhero-work">
+        <tr>
+          <th>Work</th>
+          <th>Data</th>
+        </tr>
+      </table>
+    </div>
   </body>
+  <script src="./assets/js/detailsScript.js"></script>
 </html>

@@ -1,4 +1,5 @@
 let textInput = document.querySelector("#name");
+let charFormEl = document.querySelector("#character-form");
 let recentSearchesOl = document.querySelector("#recent-searches-list");
 
 let previousSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
@@ -6,12 +7,14 @@ let previousSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
 if (previousSearchHistory && previousSearchHistory.length > 0) {
   for (let i = 0; i < previousSearchHistory.length && i < 5; i++) {
     var characterItem = document.createElement("li");
-    characterItem.textContent = previousSearchHistory[i];
+    let cased = previousSearchHistory[i].substring(0, 1).toUpperCase() + previousSearchHistory[i].substring(1, previousSearchHistory[i].length);
+    characterItem.textContent = cased;
     recentSearchesOl.append(characterItem);
   }
 }
 
-function handleSearch() {
+function handleSearch(e) {
+  e.preventDefault();
   if (textInput.value === "") {
     return;
   }
@@ -26,15 +29,17 @@ function handleSearch() {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }
 
-  var characterItem = document.createElement("li");
-  characterItem.textContent = textInput.value;
-
-  recentSearchesOl.prepend(characterItem);
-  textInput.value = "";
+  var superheroSearch = textInput.value;
+  superheroSearch = superheroSearch.replace(/\s+/g, "-");
+  window.location = "./details.html?name=" + superheroSearch;
 }
+
+charFormEl.addEventListener("submit", handleSearch);
 
 recentSearchesOl.addEventListener("click", function (e) {
   if (e.target && e.target.matches("li")) {
-    window.location = "./details.html?name=" + e.target.innerText;
+    var superheroSearch = e.target.innerText;
+    superheroSearch = superheroSearch.replace(/\s+/g, "-");
+    window.location = "./details.html?name=" + superheroSearch;
   }
 });
