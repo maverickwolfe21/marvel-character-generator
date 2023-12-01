@@ -32,6 +32,7 @@ function handleSearch(e) {
   var superheroSearch = textInput.value;
   superheroSearch = superheroSearch.replace(/\s+/g, "-")
   window.location = "./details.html?name=" + superheroSearch;
+  
 }
 
 charFormEl.addEventListener("submit", handleSearch);
