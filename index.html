@@ -11,25 +11,30 @@
       integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
   </head>
-  <body style="background: #007fff">
-    <h1>Superhero Search!</h1>
-    <div class="card">
-      <h3 class="card-header text-uppercase">Search By Character Name!</h3>
-      <form class="pure-form" id="character-form" class="card-body">
-        <input name="name" id="name" type="text" autofocus="true" class="form-input" placeholder="Enter a character name" />
-        <button type="submit" class="pure-button pure-button-primary custom-button">Search</button>
-      </form>
-    </div>
-
-    <div id="recent-searches-container">
-      <ul id="recent-searches-list"></ul>
+  <body>
+    <div class="container">
+      <h1 class="header">Superhero Search!</h1>
+      <div class="hero-container">
+        <img class="hero-image" src="./assets/images/superman.png" alt="Superman" />
+        <!-- <img class="hero-image" src="./assets/images/thor.png" alt="Thor" /> -->
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <form class="pure-form custom-form" id="character-form">
+          <input name="name" id="name" type="text" autofocus="true" class="form-input" placeholder="Enter a character name" />
+          <button type="submit" class="pure-button pure-button-primary custom-button">Search</button>
+        </form>
+        <div class="recent-searches-container" id="recent-searches-container">
+          <h2>Recent Searches</h2>
+          <ol id="recent-searches-list"></ol>
+        </div>
+      </div>
     </div>
   </body>
-  <script src="./script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </html>
