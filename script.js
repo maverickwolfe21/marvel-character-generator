@@ -1,4 +1,5 @@
 let textInput = document.querySelector("#name");
+let charFormEl = document.querySelector("#character-form")
 let recentSearchesOl = document.querySelector("#recent-searches-list");
 
 let previousSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
@@ -11,7 +12,9 @@ if (previousSearchHistory && previousSearchHistory.length > 0) {
   }
 }
 
-function handleSearch() {
+
+function handleSearch(e) {
+  e.preventDefault();
   if (textInput.value === "") {
     return;
   }
@@ -26,15 +29,17 @@ function handleSearch() {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }
 
-  var characterItem = document.createElement("li");
-  characterItem.textContent = textInput.value;
-
-  recentSearchesOl.prepend(characterItem);
-  textInput.value = "";
+  var superheroSearch = textInput.value;
+  superheroSearch = superheroSearch.replace(/\s+/g, "-")
+  window.location = "./details.html?name=" + superheroSearch;
 }
 
-// recentSearchesOl.addEventListener("click", function (e) {
-//   if (e.target && e.target.matches("li")) {
-//     window.location = "./details.html?name=" + e.target.innerText;
-//   }
-// });
+charFormEl.addEventListener("submit", handleSearch);
+
+recentSearchesOl.addEventListener("click", function (e) {
+  if (e.target && e.target.matches("li")) {
+    var superheroSearch = e.target.innerText;
+    superheroSearch = superheroSearch.replace(/\s+/g, "-")
+    window.location = "./details.html?name=" + superheroSearch;
+  }
+});
