@@ -10,7 +10,23 @@
 * {
   font-family: "Roboto", sans-serif;
 }
-
+header h1{
+  text-align: center;
+  font-size: 3em;
+}
+/* .hero{
+  background-image: url(../images/Superhero-pose-in-action-on-transparent-background-PNG.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+.hero img{
+  width:450px;
+}
+.container{
+ display: flex;
+ justify-content: center;
+}
 .custom-button {
   color: white;
   border-radius: 4px;
@@ -25,3 +41,6 @@ li:hover {
   font-size: 25px;
 }
 
+#recent-searches-list{
+  padding-left: 14px;
+}

@@ -11,7 +11,7 @@
       integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css"/>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,21 +21,27 @@
 
   </head>
   <body style="background:#007FFF;">
+    <header>
     <h1>Superhero Search!</h1>
+  </header>
+  <div class="hero">
+    <img src="./assets/images/Superhero-pose-in-action-on-transparent-background-PNG.png" alt="">
+  </div>
+  <div class="container">
     <div class="card">
-      <h3 class="card-header text-uppercase">Search By Character Name!</h3>
+      <h1 class="card-header text-uppercase">Search By Character Name!</h1>
       <form onsubmit="handleSearch()" class="pure-form" id="character-form" class="card-body">
         <input name="name" id="name" type="text" autofocus="true" class="form-input" placeholder="Enter a character name" />
         <button type="submit" class="pure-button pure-button-primary custom-button">Search</button>
       </form>
+      <div id="recent-searches-container">
+        <ul id="recent-searches-list"></ul>
+      </div>
     </div>
-
-    <div id="recent-searches-container">
-      <ul id="recent-searches-list"></ul>
-    </div>
-    <div>
   </div>
+   
+
   </body>
-  <script src="./script.js"></script>
+  <script src="./assets/js/script.js"></script>
 
 </html>
