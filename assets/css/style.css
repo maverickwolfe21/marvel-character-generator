@@ -94,7 +94,6 @@ th:nth-child(odd) {
 .custom-form > input {
   border: 2px solid white;
   width: 350px;
-  color: white;
 }
 .custom-form > input::placeholder {
 }
