@@ -31,6 +31,7 @@ function handleSearch(e) {
 
   var superheroSearch = textInput.value;
   superheroSearch = superheroSearch.replace(/\s+/g, "-");
+  textInput.value = "";
   window.location = "./details.html?name=" + superheroSearch;
 }
 
