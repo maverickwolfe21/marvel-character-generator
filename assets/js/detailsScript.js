@@ -31,6 +31,7 @@ async function generateHeroData() {
 
     // This gets the first result of the heroes list
     var firstHero = heroData.hero[0];
+    console.log(firstHero);
 
     // This will generate the table full of data
     function generateHeroTable(dataSel) {
@@ -46,10 +47,8 @@ async function generateHeroData() {
         var tableCategory = document.createElement("td");
         var tableInfo = document.createElement("td");
 
-        tableCategory.textContent = "test";
-        tableInfo.textContent = "test";
-        // tableCategory.textContent = heroKey[i];
-        // tableInfo.textContent = heroVal[i];
+        tableCategory.textContent = heroKey[i];
+        tableInfo.textContent = heroVal[i];
 
         tableRow.appendChild(tableCategory);
         tableRow.appendChild(tableInfo);
@@ -63,9 +62,6 @@ async function generateHeroData() {
     tablesToMake.forEach((element) => {
       generateHeroTable(element);
     });
-
-    superheroPhotoEl.src = firstHero.data.image.url;
-    superheroPhotoEl.alt = "Image of " + superheroName;
 
     // Get the gif
     var giphyUrl =
@@ -90,14 +86,14 @@ async function generateHeroData() {
     });
   } catch (error) {
     console.error(error);
-    // superheroInfoEl.textContent = "Server seems to be down! Sending you back!";
-    // var timer = 2;
-    // var goBackTimer = setInterval(function () {
-    //   timer--;
-    //   if (timer <= 0) {
-    //     window.location = "./index.html";
-    //   }
-    // }, 1000);
+    superheroInfoEl.textContent = "Server seems to be down! Sending you back!";
+    var timer = 2;
+    var goBackTimer = setInterval(function () {
+      timer--;
+      if (timer <= 0) {
+        window.location = "./index.html";
+      }
+    }, 1000);
   }
 }
 
