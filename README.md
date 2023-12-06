@@ -15,4 +15,4 @@
 #### Victor: HTML
 #### Heather: CSS
 
-#### [Deployment link] (https://maverickwolfe21.github.io/superhero-search/)
+#### [Deployment link](https://maverickwolfe21.github.io/superhero-search/)
