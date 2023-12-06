@@ -11,3 +11,5 @@
 #### Maverick: GitHub, Trello, Figma, assisting with html, css and javascript
 #### Victor: HTML
 #### Heather: CSS
+
+##### [Deployed link](https://maverickwolfe21.github.io/superhero-search/) 
